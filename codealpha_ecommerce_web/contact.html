@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Glow Theory Elite</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* --- RESET & ULTRA DARK DESIGN BASE --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        
+        body { 
+            background-color: #050505; 
+            color: #d8d8d8; 
+            overflow-x: hidden; 
+        }
+
+        /* Cart Icon Styling */
+        .cart-icon-container { 
+            position: relative; text-decoration: none; color: #d4a373; 
+            font-size: 22px; transition: 0.3s; cursor: pointer;
+        }
+        .cart-icon-container:hover { transform: scale(1.1); color: #fff; }
+        
+        .cart-count { 
+            position: absolute; top: -10px; right: -12px; 
+            background: #d4a373; color: #050505; font-size: 10px; 
+            font-weight: bold; padding: 2px 6px; border-radius: 50%; 
+            box-shadow: 0 2px 10px rgba(212,163,115,0.4);
+        }
+
+        /* --- LUXURY HERO SECTION --- */
+        .contact-hero {
+            height: 450px;
+            background: linear-gradient(rgba(5, 5, 5, 0.75) 0%, rgba(5, 5, 5, 0.98) 100%), 
+                        url('images/contact-bg.png') no-repeat center center/cover;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            text-align: center; padding: 0 5%;
+            border-bottom: 1px solid rgba(212, 163, 115, 0.08);
+        }
+        .contact-hero span { color: #d4a373; text-transform: uppercase; letter-spacing: 6px; font-size: 13px; font-weight: 600; margin-bottom: 15px; animation: fadeIn 1s ease; }
+        .contact-hero h1 { font-family: 'Playfair Display', serif; font-size: 58px; color: #fff; text-shadow: 0 4px 30px rgba(0,0,0,0.9); animation: slideUp 1s ease; }
+
+        /* --- INTERACTIVE GLASS CARDS --- */
+        .contact-grid {
+            max-width: 1200px; margin: -80px auto 100px; padding: 0 8%;
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;
+        }
+        .info-card {
+            background: rgba(18, 18, 18, 0.8); padding: 45px 30px; border-radius: 25px;
+            text-align: center; border: 1px solid rgba(255, 255, 255, 0.03);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6); backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px); transition: 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .info-card:hover { transform: translateY(-12px); border-color: #d4a373; box-shadow: 0 20px 45px rgba(212, 163, 115, 0.08); }
+        
+        .icon-circle {
+            width: 65px; height: 65px; background: rgba(212, 163, 115, 0.08); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 25px; color: #d4a373; font-size: 26px;
+            border: 1px solid rgba(212, 163, 115, 0.15); transition: 0.4s;
+        }
+        .info-card:hover .icon-circle { background: #d4a373; color: #050505; transform: rotate(360deg); box-shadow: 0 0 20px rgba(212,163,115,0.4); }
+        
+        .info-card h3 { font-family: 'Playfair Display', serif; font-size: 22px; margin-bottom: 15px; color: #fff; font-weight: 500; }
+        .info-card p { color: #a5a5a5; font-size: 14px; line-height: 1.7; font-weight: 300; }
+
+        /* --- MODERN DUAL PANEL FORM --- */
+        .form-section {
+            max-width: 1000px; margin: 0 auto 120px; display: flex;
+            background: rgba(18, 18, 18, 0.6); border-radius: 30px; overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.7); border: 1px solid rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+        }
+        
+        .form-visual {
+            flex: 1.1; padding: 60px;
+            display: flex; flex-direction: column; justify-content: center;
+            background: linear-gradient(135deg, #0f0f0f 0%, #171314 100%);
+            border-right: 1px solid rgba(255, 255, 255, 0.03);
+            position: relative;
+        }
+        .form-visual h2 { font-family: 'Playfair Display', serif; font-size: 36px; margin-bottom: 20px; color: #fff; line-height: 1.3; }
+        .form-visual p { font-size: 14px; color: #a5a5a5; line-height: 1.8; margin-bottom: 35px; font-weight: 300; }
+        .brand-tag { font-size: 11px; color: #d4a373; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; }
+
+        .form-container { flex: 1.5; padding: 60px; background: transparent; }
+        .input-row { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-bottom: 25px; }
+        .input-group { margin-bottom: 25px; }
+        .input-group label { display: block; font-size: 11px; font-weight: 600; text-transform: uppercase; color: #8a8a8a; letter-spacing: 1px; margin-bottom: 8px; }
+        
+        .input-group input, .input-group textarea {
+            width: 100%; padding: 15px 0; border: none; border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            background: transparent; outline: none; transition: 0.3s; font-size: 14px; color: #fff;
+        }
+        .input-group input:focus, .input-group textarea:focus { border-bottom-color: #d4a373; }
+        
+        /* Input Autofill Dark Fix */
+        input:-webkit-autofill { -webkit-text-fill-color: white !important; transition: background-color 5000s ease-in-out 0s; }
+
+        /* --- LUXURY ACTION BUTTON --- */
+        .btn-send {
+            padding: 18px 40px; background: #1c1c1c; color: #fff; border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 50px; text-transform: uppercase; font-weight: 600;
+            letter-spacing: 2px; cursor: pointer; transition: 0.4s; width: 100%; font-size: 12px;
+        }
+        .btn-send:hover { background: #d4a373; color: #050505; border-color: #d4a373; box-shadow: 0 10px 30px rgba(212,163,115,0.3); }
+
+        /* --- RESPONSIVE OPTIMIZATION --- */
+        @media (max-width: 950px) {
+            .contact-grid { grid-template-columns: 1fr; margin-top: -50px; padding: 0 5%; gap: 25px; }
+            .form-section { flex-direction: column; width: 90%; margin: 0 auto 80px; }
+            .form-visual { padding: 40px; text-align: center; }
+            .form-container { padding: 40px; }
+            .input-row { grid-template-columns: 1fr; gap: 0; }
+            .contact-hero h1 { font-size: 38px; }
+        }
+
+        /* --- REVEAL ANIMATIONS --- */
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo-container" onclick="window.location.href='index.html'">
+            <img src="images/logo.png" alt="Glow Theory Logo">
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown">
+                <a href="skin care.html">Skin Care</a>
+                <div class="dropdown-content">
+                    <a href="skin care.html">✨ All Products</a>
+                    <a href="serums.html">🧪 Serums</a>
+                    <a href="cleanser.html">🧼 Cleansers</a>
+                    <a href="Moisturizers.html">💧 Moisturizers</a>
+                </div>
+            </li>
+            <li><a href="luxlips.html">Luxe Lips</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        
+        <a href="cart.html" class="cart-icon-container">
+            🛒 <span class="cart-count" id="cart-count">0</span>
+        </a>
+    </nav>
+
+    <section class="contact-hero">
+        <span>Glow Theory Elite</span>
+        <h1>How Can We Help?</h1>
+    </section>
+
+    <div class="contact-grid">
+        <div class="info-card">
+            <div class="icon-circle">✉️</div>
+            <h3>Email Us</h3>
+            <p>hello@glowtheory.com<br>support@glowtheory.com</p>
+        </div>
+        <div class="info-card">
+            <div class="icon-circle">📍</div>
+            <h3>Visit Boutique</h3>
+            <p>Studio 12, Luxury Sector<br>Karachi, Pakistan</p>
+        </div>
+        <div class="info-card">
+            <div class="icon-circle">🕰️</div>
+            <h3>Work Hours</h3>
+            <p>Mon - Sat: 10:00 - 19:00<br>Sunday: Closed</p>
+        </div>
+    </div>
+
+    <div class="form-section">
+        <div class="form-visual">
+            <h2>Let's Talk Beauty.</h2>
+            <p>Aapka koi bhi sawal ho ya koi feedback, humein batayein. Hamari beauty experts ki team aapko complete guidance provide karegi.</p>
+            <div class="brand-tag">#GLOWTHEORYELITE</div>
+        </div>
+
+        <div class="form-container">
+            <form id="luxuryContactForm" onsubmit="handleFormSubmit(event)">
+                <div class="input-row">
+                    <div class="input-group">
+                        <label>Name</label>
+                        <input type="text" id="clientName" placeholder="Your Name" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Email</label>
+                        <input type="email" id="clientEmail" placeholder="name@example.com" required>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>Subject</label>
+                    <input type="text" id="clientSubject" placeholder="Product Inquiry / Feedback" required>
+                </div>
+                <div class="input-group">
+                    <label>Message</label>
+                    <textarea rows="4" id="clientMessage" placeholder="How can we assist your glow today?" required></textarea>
+                </div>
+                <button type="submit" class="btn-send">Send Message</button>
+            </form>
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-box">
+                <h2>Glow Theory Elite</h2>
+                <p>Luxury skincare crafted for radiant beauty. Experience premium formulas designed to nourish, hydrate and transform your skin.</p>
+            </div>
+            <div class="footer-box">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="skin care.html">Skin Care</a></li>
+                    <li><a href="luxlips.html">Luxe Lips</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-box">
+                <h3>Categories</h3>
+                <ul>
+                    <li><a href="cleanser.html">Cleansers</a></li>
+                    <li><a href="serums.html">Serums</a></li>
+                    <li><a href="moisturizers.html">Moisturizers</a></li>
+                    <li><a href="#">Face Masks</a></li>
+                </ul>
+            </div>
+            <div class="footer-box">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#">📷</a>
+                    <a href="#">📘</a>
+                    <a href="#">🎵</a>
+                    <a href="#">▶</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Glow Theory Elite | All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <script>
+        // Synchronize Cart Count across storage
+        function updateCartCount() {
+            let cart = JSON.parse(localStorage.getItem('glowCart')) || [];
+            const countElement = document.getElementById('cart-count');
+            if (countElement) {
+                let totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+                countElement.innerText = totalItems;
+            }
+        }
+
+        // WhatsApp Integration and Luxury Popup Flow
+        function handleFormSubmit(event) {
+            event.preventDefault(); // Default page reload block karein
+            
+            // 1. Form inputs se values lena
+            const name = document.getElementById('clientName').value;
+            const email = document.getElementById('clientEmail').value;
+            const subject = document.getElementById('clientSubject').value;
+            const messageText = document.getElementById('clientMessage').value;
+            
+            // 2. WhatsApp Message generate karna
+            let whatsappMessage = `✨ *Glow Theory Elite - Concierge Inquiry* ✨\n\n`;
+            whatsappMessage += `👤 *Client Name:* ${name}\n`;
+            whatsappMessage += `📧 *Email:* ${email}\n`;
+            whatsappMessage += `📝 *Subject:* ${subject}\n\n`;
+            whatsappMessage += `💬 *Message:* \n"${messageText}"\n\n`;
+            whatsappMessage += `⏳ _Sent via Glow Theory Secure Contact System_`;
+            
+            let encodedMessage = encodeURIComponent(whatsappMessage);
+            
+            // 3. WhatsApp Redirect Link with your provided number
+            let whatsappURL = `https://wa.me/919336576683?text=${encodedMessage}`;
+            
+            // 4. Custom Luxury Popup Alert Screen Par Dikhana
+            const messageAlert = document.createElement('div');
+            messageAlert.style.cssText = `
+                position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+                background: #121212; border: 1px solid #d4a373; color: #fff;
+                padding: 40px 50px; border-radius: 25px; z-index: 9999; text-align: center;
+                box-shadow: 0 20px 80px rgba(0,0,0,0.9); animation: slideUp 0.4s ease;
+                max-width: 450px; width: 90%;
+            `;
+            
+            messageAlert.innerHTML = `
+                <div style="font-size: 40px; margin-bottom: 20px;">💬</div>
+                <h3 style="font-family: 'Playfair Display', serif; font-size: 24px; color: #d4a373; margin-bottom: 10px;">Connecting to Concierge</h3>
+                <p style="font-size: 14px; color: #a5a5a5; line-height: 1.6; margin-bottom: 25px;">Thank you, ${name}. We are transferring your premium inquiry details to our live WhatsApp support desk securely.</p>
+                <button id="closeAlertBtn" style="padding: 12px 35px; background: #d4a373; color: #050505; border: none; border-radius: 50px; font-weight: 600; text-transform: uppercase; font-size: 11px; letter-spacing: 1px; cursor: pointer;">Proceed to WhatsApp</button>
+            `;
+            
+            document.body.appendChild(messageAlert);
+            
+            // Form ko mita kar khali karna submit ke baad
+            document.getElementById('luxuryContactForm').reset();
+
+            // Button click hone par WhatsApp open karna
+            document.getElementById('closeAlertBtn').onclick = function() {
+                messageAlert.remove();
+                window.open(whatsappURL, '_blank');
+            };
+        }
+
+        window.onload = updateCartCount;
+    </script>
+</body>
+</html>

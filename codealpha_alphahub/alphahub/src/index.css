@@ -1,0 +1,125 @@
+:root {
+  --primary: #0047AB; 
+  --secondary: #003380; 
+  --bg: #F8F9FA;
+  --text-dark: #2D3436;
+  --card-bg: #FFFFFF;
+}
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg);
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+  color: var(--text-dark);
+  overflow-x: hidden; 
+  line-height: 1.6;
+}
+
+.navbar {
+  background: rgba(255, 255, 255, 0.9); 
+  backdrop-filter: blur(10px);
+  color: var(--primary);
+  padding: 1rem 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+}
+
+
+.container {
+  width: 100%;
+  max-width: 600px; 
+  margin: 30px auto;
+  padding: 0 15px; 
+}
+
+
+.post-box {
+  background: var(--card-bg);
+  padding: clamp(15px, 4vw, 25px); 
+  border-radius: 16px; 
+  box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+  border: 1px solid rgba(0,0,0,0.02);
+  transition: transform 0.3s ease;
+  width: 100%;
+}
+
+.post-box:hover {
+  transform: translateY(-5px); 
+}
+
+
+textarea {
+  width: 100%;
+  border: 2px solid #F1F2F6;
+  border-radius: 12px;
+  padding: 15px;
+  font-size: clamp(14px, 2vw, 15px); 
+  box-sizing: border-box;
+  resize: none; 
+  transition: border-color 0.3s;
+  display: block;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+
+.btn-post {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 15px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px rgba(0, 71, 171, 0.2);
+  transition: all 0.3s ease;
+  display: inline-block;
+  width: auto;
+}
+
+.btn-post:hover {
+  opacity: 0.9;
+  box-shadow: 0 6px 20px rgba(0, 71, 171, 0.3);
+}
+
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem 15px;
+    font-size: 0.9rem;
+  }
+  
+  .container {
+    margin: 20px auto;
+  }
+  
+  .btn-post {
+    width: 100%; 
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .post-box {
+    padding: 15px;
+    border-radius: 12px;
+  }
+}

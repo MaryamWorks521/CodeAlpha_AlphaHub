@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Serums | Glow Theory Elite</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#050505;
+color:#d8d8d8;
+overflow-x:hidden;
+}
+
+.cart-count{
+position:absolute;
+top:-10px;
+right:-12px;
+background:#d4a373;
+color:black;
+font-size:10px;
+padding:2px 6px;
+border-radius:50%;
+font-weight:bold;
+}
+
+/* HERO */
+
+.texture-hero{
+display:flex;
+align-items:center;
+gap:50px;
+padding:60px 10%;
+background:#111;
+margin:20px 0;
+}
+
+.texture-img img{
+width:100%;
+max-width:450px;
+border-radius:20px;
+}
+
+.texture-info{
+flex:1;
+}
+
+.texture-info span{
+color:#d4a373;
+font-size:11px;
+letter-spacing:3px;
+text-transform:uppercase;
+}
+
+.texture-info h2{
+font-family:'Playfair Display';
+font-size:45px;
+margin:15px 0;
+color:white;
+}
+
+.texture-info p{
+color:#999;
+line-height:1.8;
+}
+
+/* CARDS */
+
+.grid-container{
+padding:40px 10% 100px;
+}
+
+.product-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:40px;
+}
+
+.card{
+background:#111;
+padding:25px;
+border-radius:25px;
+text-align:center;
+transition:.4s;
+position:relative;
+}
+
+.card:hover{
+transform:translateY(-10px);
+border:1px solid #d4a373;
+}
+
+.img-box{
+height:260px;
+background:#181818;
+display:flex;
+justify-content:center;
+align-items:center;
+border-radius:20px;
+overflow:hidden;
+margin-bottom:20px;
+}
+
+.img-box img{
+width:80%;
+transition:.5s;
+}
+
+.card:hover img{
+transform:scale(1.08);
+}
+
+.tag{
+font-size:10px;
+color:#999;
+letter-spacing:2px;
+text-transform:uppercase;
+}
+
+.card h3{
+margin:10px 0;
+color:white;
+}
+
+.price{
+color:#d4a373;
+font-size:20px;
+font-weight:bold;
+display:block;
+margin-bottom:20px;
+}
+
+.btn{
+width:100%;
+padding:14px;
+background:#222;
+color:white;
+border:none;
+border-radius:50px;
+cursor:pointer;
+font-size:11px;
+text-transform:uppercase;
+letter-spacing:1px;
+}
+
+.btn:hover{
+background:#d4a373;
+color:black;
+}
+
+.badge{
+position:absolute;
+top:15px;
+left:15px;
+background:linear-gradient(135deg,#d4a373,#aa7c50);
+color:black;
+padding:5px 10px;
+font-size:9px;
+font-weight:bold;
+border-radius:20px;
+}
+
+</style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo-container" onclick="window.location.href='index.html'">
+            <img src="images/logo.png" alt="Glow Theory Logo">
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown">
+                <a href="skin care.html">Skin Care</a>
+                <div class="dropdown-content">
+                    <a href="skin care.html">✨ All Products</a>
+                    <a href="serums.html">🧪 Serums</a>
+                    <a href="cleanser.html">🧼 Cleansers</a>
+                    <a href="Moisturizers.html">💧 Moisturizers</a>
+                </div>
+            </li>
+            <li><a href="luxlips.html">Luxe Lips</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        
+        <a href="cart.html" class="cart-icon-container">
+            🛒 <span class="cart-count" id="cart-count">0</span>
+        </a>
+    </nav>
+
+
+
+<section class="texture-hero">
+
+<div class="texture-img">
+<img src="images/serum images/serum-banner.png">
+</div>
+
+<div class="texture-info">
+<span>Elite Serum Collection</span>
+
+<h2>Radiance <br> In Every Drop</h2>
+
+<p>
+Discover concentrated skincare formulas crafted to hydrate, brighten and transform your skin with luxurious serum technology.
+</p>
+
+</div>
+
+</section>
+
+
+<main class="grid-container">
+
+<div class="product-grid">
+
+<div class="card">
+<div class="badge">Best Seller</div>
+<div class="img-box">
+<img src="images/serum images/serum1.png">
+</div>
+
+<span class="tag">Vitamin C</span>
+<h3>Glow C Serum</h3>
+<span class="price">Rs. 3,200</span>
+
+<button class="btn"
+onclick="addToBag('Glow C Serum',3200,'images/serum images/serum1.png')">
+Add To Bag
+</button>
+
+</div>
+
+
+<div class="card">
+
+<div class="img-box">
+<img src="images/serum images/serum2.png">
+</div>
+
+<span class="tag">Hydrating</span>
+<h3>Hyaluronic Boost</h3>
+<span class="price">Rs. 4,100</span>
+
+<button class="btn"
+onclick="addToBag('Hyaluronic Boost',4100,'images/serum images/serum2.png')">
+Add To Bag
+</button>
+
+</div>
+
+
+<div class="card">
+
+<div class="badge">New</div>
+
+<div class="img-box">
+<img src="images/serum images/serum3.png">
+</div>
+
+<span class="tag">Brightening</span>
+<h3>Crystal Glow Drops</h3>
+<span class="price">Rs. 4,500</span>
+
+<button class="btn"
+onclick="addToBag('Crystal Glow Drops',4500,'images/serum images/serum3.png')">
+Add To Bag
+</button>
+
+</div>
+
+
+<div class="card">
+
+<div class="img-box">
+<img src="images/serum images/serum4.png">
+</div>
+
+<span class="tag">Anti Aging</span>
+<h3>Peptide Youth Serum</h3>
+<span class="price">Rs. 5,200</span>
+
+<button class="btn"
+onclick="addToBag('Peptide Youth Serum',5200,'images/serum images/serum4.png')">
+Add To Bag
+</button>
+
+</div>
+
+</div>
+
+</main>
+
+
+<script>
+
+let cart=JSON.parse(localStorage.getItem('glowCart')) || [];
+
+function updateCartCount(){
+
+let total=cart.reduce(
+(sum,item)=>sum+item.quantity,0
+);
+
+document.getElementById(
+'cart-count'
+).innerText=total;
+
+}
+
+function addToBag(name,price,img){
+
+let found=cart.find(
+item=>item.name===name
+);
+
+if(found){
+
+found.quantity++;
+
+}
+else{
+
+cart.push({
+name,
+price,
+img,
+quantity:1
+});
+
+}
+
+localStorage.setItem(
+'glowCart',
+JSON.stringify(cart)
+);
+
+updateCartCount();
+
+alert(name+" Added To Bag");
+
+}
+
+window.onload=updateCartCount;
+
+</script>
+
+</body>
+</html>
