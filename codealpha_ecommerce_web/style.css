@@ -27,39 +27,39 @@
         .dropdown-content a { padding: 12px 20px; font-size: 13px; display: block; text-decoration: none; color: #b5b5b5; }
         .dropdown-content a:hover { background: #171213; color: #d4a373; padding-left: 25px; }
 
-        /* 📱 HAMBURGER BUTTON STYLING (With Smooth Smooth Animation) */
+        /* 📱 SLEEK HAMBURGER BUTTON STYLING (For Mobile Screens Only) */
         .menu-toggle {
             display: none;
             flex-direction: column;
             cursor: pointer;
             gap: 6px;
-            z-index: 1001; /* Menu ke upar rakhne ke liye */
+            z-index: 1001;
         }
         .menu-toggle .bar {
             width: 25px;
             height: 2px;
-            background-color: #d4a373; /* Premium Gold Line */
+            background-color: #d4a373; /* Premium Gold Tint */
             transition: all 0.3s ease-in-out;
         }
 
         /* 📱 RESPONSIVE SIDE MENU FOR MOBILE */
         @media (max-width: 768px) {
             .navbar {
-                padding: 15px 6%; /* Mobile padding layout */
+                padding: 15px 6%;
             }
             .menu-toggle {
-                display: flex; /* Mobile par 3 lines dikhenge */
+                display: flex; /* Mobile screen par aate hi 3 lines show hongi */
             }
             .nav-links {
                 position: fixed;
                 top: 0;
-                right: -100%; /* Shuru mein menu screen se baahir chupa hoga */
+                right: -100%; /* Shuru mein options screen se bahar chhupe honge */
                 flex-direction: column;
                 justify-content: center;
                 align-items: flex-start;
                 background: rgba(10, 10, 10, 0.98);
                 backdrop-filter: blur(25px);
-                width: 75%; /* Premium layout width */
+                width: 75%;
                 height: 100vh;
                 gap: 25px;
                 padding: 80px 40px;
@@ -67,7 +67,8 @@
                 box-shadow: -10px 0 40px rgba(0,0,0,0.9);
                 border-left: 1px solid rgba(212, 163, 115, 0.1);
             }
-            /* Jab active class lagegi toh menu screen par slide hokar aayega */
+            
+            /* Jab active class lagegi toh premium drawer open hoga */
             .nav-links.active {
                 right: 0;
             }
@@ -77,18 +78,12 @@
                 display: block;
             }
             
-            /* ✖️ ANIMATION: 3 Lines turns into 'X' */
-            .menu-toggle.is-active .bar:nth-child(2) { 
-                opacity: 0; 
-            }
-            .menu-toggle.is-active .bar:nth-child(1) { 
-                transform: translateY(8px) rotate(45deg); 
-            }
-            .menu-toggle.is-active .bar:nth-child(3) { 
-                transform: translateY(-8px) rotate(-45deg); 
-            }
+            /* ✖️ Hamburger to 'X' smooth transformation */
+            .menu-toggle.is-active .bar:nth-child(2) { opacity: 0; }
+            .menu-toggle.is-active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+            .menu-toggle.is-active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
-            /* Mobile Dropdown Layout Fix */
+            /* Mobile Dropdown Fix */
             .dropdown { width: 100%; }
             .dropdown-content {
                 position: relative;
@@ -101,8 +96,8 @@
                 padding-left: 15px;
                 margin-bottom: 10px;
             }
-            .dropdown:hover .dropdown-content { display: none; } /* Mobile par hover band */
-            .dropdown.open .dropdown-content { display: block; } /* Click par open */
+            .dropdown:hover .dropdown-content { display: none; }
+            .dropdown.open .dropdown-content { display: block; }
         }
 
         /* FOOTER */
