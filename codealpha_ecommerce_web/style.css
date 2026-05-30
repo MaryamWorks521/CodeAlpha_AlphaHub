@@ -27,48 +27,82 @@
         .dropdown-content a { padding: 12px 20px; font-size: 13px; display: block; text-decoration: none; color: #b5b5b5; }
         .dropdown-content a:hover { background: #171213; color: #d4a373; padding-left: 25px; }
 
-        /* 📱 HAMBURGER BUTTON STYLING */
+        /* 📱 HAMBURGER BUTTON STYLING (With Smooth Smooth Animation) */
         .menu-toggle {
             display: none;
             flex-direction: column;
             cursor: pointer;
-            gap: 5px;
+            gap: 6px;
+            z-index: 1001; /* Menu ke upar rakhne ke liye */
         }
         .menu-toggle .bar {
             width: 25px;
             height: 2px;
             background-color: #d4a373; /* Premium Gold Line */
-            transition: 0.3s;
+            transition: all 0.3s ease-in-out;
         }
 
         /* 📱 RESPONSIVE SIDE MENU FOR MOBILE */
         @media (max-width: 768px) {
+            .navbar {
+                padding: 15px 6%; /* Mobile padding layout */
+            }
             .menu-toggle {
                 display: flex; /* Mobile par 3 lines dikhenge */
             }
             .nav-links {
                 position: fixed;
-                top: 70px;
+                top: 0;
                 right: -100%; /* Shuru mein menu screen se baahir chupa hoga */
                 flex-direction: column;
-                background: rgba(13, 13, 13, 0.98);
-                width: 70%;
+                justify-content: center;
+                align-items: flex-start;
+                background: rgba(10, 10, 10, 0.98);
+                backdrop-filter: blur(25px);
+                width: 75%; /* Premium layout width */
                 height: 100vh;
-                gap: 30px;
-                padding-top: 40px;
-                transition: 0.4s ease;
-                box-shadow: -10px 0 30px rgba(0,0,0,0.9);
+                gap: 25px;
+                padding: 80px 40px;
+                transition: 0.4s cubic-bezier(0.1, 0.8, 0.3, 1);
+                box-shadow: -10px 0 40px rgba(0,0,0,0.9);
                 border-left: 1px solid rgba(212, 163, 115, 0.1);
             }
             /* Jab active class lagegi toh menu screen par slide hokar aayega */
             .nav-links.active {
                 right: 0;
             }
+            .nav-links a {
+                font-size: 16px;
+                width: 100%;
+                display: block;
+            }
+            
+            /* ✖️ ANIMATION: 3 Lines turns into 'X' */
+            .menu-toggle.is-active .bar:nth-child(2) { 
+                opacity: 0; 
+            }
+            .menu-toggle.is-active .bar:nth-child(1) { 
+                transform: translateY(8px) rotate(45deg); 
+            }
+            .menu-toggle.is-active .bar:nth-child(3) { 
+                transform: translateY(-8px) rotate(-45deg); 
+            }
+
+            /* Mobile Dropdown Layout Fix */
+            .dropdown { width: 100%; }
             .dropdown-content {
                 position: relative;
+                top: 10px;
                 box-shadow: none;
-                background: #141414;
+                background: rgba(20, 20, 20, 0.5);
+                border: none;
+                border-left: 2px solid #d4a373;
+                border-radius: 0;
+                padding-left: 15px;
+                margin-bottom: 10px;
             }
+            .dropdown:hover .dropdown-content { display: none; } /* Mobile par hover band */
+            .dropdown.open .dropdown-content { display: block; } /* Click par open */
         }
 
         /* FOOTER */
