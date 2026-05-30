@@ -27,26 +27,31 @@
         .dropdown-content a { padding: 12px 20px; font-size: 13px; display: block; text-decoration: none; color: #b5b5b5; }
         .dropdown-content a:hover { background: #171213; color: #d4a373; padding-left: 25px; }
 
-        /* 📱 MOBILE RESPONSIVE NAVBAR FIX */
+        /* 📱 SLEEK & MINIMALIST MOBILE FIX */
         @media (max-width: 768px) {
             .navbar {
-                flex-direction: column;
-                gap: 15px;
-                padding: 15px 5%;
-                text-align: center;
+                padding: 10px 4%;
+                flex-wrap: wrap; /* Elements ko smooth wrap karne ke liye */
+                justify-content: center;
+                gap: 12px;
+            }
+            .logo-container img { 
+                height: 42px; /* Mobile par logo chota aur elegant lagega */
             }
             .nav-links {
-                flex-direction: column;
-                gap: 15px;
-                width: 100%;
+                gap: 15px; /* Links ke darmiyan minimalist gap */
+                justify-content: center;
                 padding: 0;
+                margin: 0;
+            }
+            .nav-links a {
+                font-size: 11px; /* Overcrowding se bachne ke liye chota font */
+                letter-spacing: 0.5px;
             }
             .dropdown-content {
-                position: relative;
-                top: 0;
-                box-shadow: none;
-                background: #141414;
-                margin-top: 5px;
+                position: absolute; /* Layout kharab na ho */
+                background: #050505;
+                min-width: 150px;
             }
         }
 
